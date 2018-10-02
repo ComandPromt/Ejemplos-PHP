@@ -14,7 +14,21 @@ print '<h2 style="text-align:center;">LISTA DE LA COMPRA PARA EL '.date('d')."/"
 <th>Total</th>
 </tr>
 <?php
-include_once("funciones.php");
+	
+function Calcular_Precio_Total_Producto($precio,$cantidad){
+    return $precio*$cantidad;
+}
+
+function Calcular_Precio_Total_Compra(array $nombres){
+    $precios=array();
+    for($x=0;$x<count($nombres);$x++){
+        if($x==3 || $x>3 && ($x+1)%4==0){
+            $precios[]=$nombres[$x];
+        }
+    }
+    
+    return array_sum($precios);
+}
 
 $nombres = array();
 
