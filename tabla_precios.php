@@ -50,13 +50,19 @@ $nombres = array();
     if (!empty($nombres)) {
 
         echo '<tr>';
-
-            for($x=0;$x<count($nombres);$x++){
-               
-            echo '<td>' . $nombres[$x] . '</td>';
-            if($x==3 || $x>3 && ($x+1)%4==0 )
-            {echo '</tr><tr>';}
-            }
+	    
+	foreach($nombres as $indice=>$valor){
+            echo '<td>'.$valor.'</td>';
+            if($indice==3 || $indice>3 && ($indice+1)%4==0 ){
+		echo '</tr><tr>';
+	    }
+        }
+           /* Otra solucion
+	   	for($x=0;$x<count($nombres);$x++){
+                	echo '<td>' . $nombres[$x] . '</td>';
+            		if($x==3 || $x>3 && ($x+1)%4==0 )
+            		{echo '</tr><tr>';}
+            	}*/
  
         echo '</tr>';
     }
