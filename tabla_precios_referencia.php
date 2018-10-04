@@ -14,7 +14,6 @@ print '<h2 style="text-align:center;">LISTA DE LA COMPRA PARA EL ' . date('d') .
 <th>Total</th>
 </tr>
 <?php
-
 function Calcular_Precio_Total_Producto(&$producto){
     $producto[]=$producto[1]*$producto[2];
 }
@@ -29,9 +28,19 @@ function Calcular_Precio_Total_Compra(array $nombres){
     
     return array_sum($precios);
 }
-
 $nombres = array();
 $productos = array();
+
+if (isset($_POST['borrar'])) {
+    $nombres = $_POST['nombres'];
+    $borrar = array_search($_POST['borrado'], $nombres);
+    unset($nombres[$borrar]);
+    unset($nombres[$borrar + 1]);
+    unset($nombres[$borrar + 2]);
+    unset($nombres[$borrar + 3]);
+    $nombres = array_values($nombres);
+}
+
 if (isset($_POST['enviar'])) {
     if (isset($_POST['nombre']) && isset($_POST['cantidad']) && isset($_POST['precio']) && isset($_POST['nombres'])) {
         $nombres = $_POST['nombres'];
@@ -51,19 +60,17 @@ echo '<tr>';
 for ($x = 0; $x < count($productos); $x++) {
     $nombres[] = $productos[$x];
 }
+
 foreach ($nombres as $indice => $valor) {
     echo '<td>' . $valor . '</td>';
     if ($indice == 3 || $indice > 3 && ($indice + 1) % 4 == 0) {
         echo '</tr><tr>';
     }
 }
-
 echo '</table>';
-
 if (Calcular_Precio_Total_Compra($nombres) > 0) {
     print '<h2 style="text-align:center;">Total: ' . Calcular_Precio_Total_Compra($nombres) . '€</h2>';
 }
-
 ?>
 <br/>
 <form style="margin:auto;text-align:center;" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -78,6 +85,22 @@ if (!empty($nombres)) {
 }
 ?>
 <br/><br/><input type="submit" name="enviar" value="enviar" />
+</form>
+<form style="margin:auto;text-align:center;" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<select name="borrado">
+<?php
+for ($x = 0; $x < count($nombres); $x += 4) {
+    print "<option>" . $nombres[$x] . "</option>";
+}
+?>
+</select>
+<?php
+if (!empty($nombres)) {
+    foreach ($nombres as $n) {
+        echo '<input type="hidden" name="nombres[]" value="' . $n . '" />';
+    }
+}?>
+<br/><br/><input type="submit" name="borrar" value="enviar" />
 </form>
 </body>
 </html>
