@@ -14,8 +14,9 @@ print '<h2 style="text-align:center;">LISTA DE LA COMPRA PARA EL ' . date('d') .
 <th>Total</th>
 </tr>
 <?php
-function Calcular_Precio_Total_Producto(array $producto){
-    return $producto[1]*$producto[2];
+
+function Calcular_Precio_Total_Producto(&$producto){
+    $producto[]=$producto[1]*$producto[2];
 }
 
 function Calcular_Precio_Total_Compra(array $nombres){
@@ -42,7 +43,7 @@ if (isset($_POST['enviar'])) {
         $productos[] = $_POST['nombre'];
         $productos[] = $_POST['cantidad'];
         $productos[] = $_POST['precio'];
-        $productos[] = Calcular_Precio_Total_Producto($productos);
+        Calcular_Precio_Total_Producto($productos);
         print '</hr>';
     }
 }
