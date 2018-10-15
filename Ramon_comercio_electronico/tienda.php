@@ -13,7 +13,9 @@ require_once "funciones.php";
 	<body>
 		<?php
 session_start();
-
+if(isset($_POST['borrar_carrito'])){
+unset($_SESSION['compra']);
+}
 if (isset($_POST['salir'])) {
     session_destroy();
     header("Location: index.php");
@@ -28,13 +30,11 @@ if (isset($_POST['salir'])) {
 				$_SESSION['compra']=array();
 
 			}
-			else{
-				
+						
 				$_SESSION['compra'][]=$_POST['cantidad'];
 				$_SESSION['compra'][]=$productos[$_POST['hid_producto']]['nombre'];
 				$_SESSION['compra'][]=$productos[$_POST['hid_producto']]['precio']*$_POST['cantidad'];
-
-			}
+			
 		}
 
         print '
@@ -55,7 +55,8 @@ if (isset($_POST['salir'])) {
 			<div>
 			<p>Ha iniciado sesión como: ' . $_SESSION['usuario'] . '</p>
 			<form method="post" action="index.php"><input type="submit" name="salir" value="Salir" /></form>
-			</div>';
+			</div>
+			';
 	}
 
 		if(isset($_SESSION['compra']) && count($_SESSION['compra'])>0){
@@ -74,6 +75,7 @@ if (isset($_POST['salir'])) {
 		print '</tr></table>';
 
 }
+
 ?>
 	</body>
 </html>
