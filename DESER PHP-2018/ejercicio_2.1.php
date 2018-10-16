@@ -1,0 +1,28 @@
+<?php
+    if (!isset($_SERVER['PHP_AUTH_USER'])){
+        header('WWW-Authenticate: Basic Realm="Contenido restringido"');
+        header('HTTP/1.0 401 Unauthorized');
+        echo "Usuario no reconocido!";
+        exit;
+    }
+?>
+<!DOCTYPE html>
+<!-- Desarrollo Web en Entorno Servidor -->
+<!-- UT 3 : Desarrollo de aplicaciones web con PHP -->
+<!-- Ejemplo: Función header para autentificación HTTP -->
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Ejercicio: Función header para autentificación HTTP</title>
+    </head>
+    <body>
+        <?php
+            if (isset($_SERVER['PHP_AUTH_USER']) and isset($_SERVER['PHP_AUTH_PW'])){
+                echo "Nombre de usuario: ".$_SERVER['PHP_AUTH_USER']."<br />";
+                echo "Contraseña: ".$_SERVER['PHP_AUTH_PW']."<br />";
+            }
+            else
+                echo "No se ha autentificado";
+        ?>
+    </body>
+</html>

@@ -7,15 +7,9 @@
     $nombres = array();
     if (isset($_POST['enviar'])) {
         if (isset($_POST['nombres'])) {
-			$_POST['nombres']=str_replace("  "," ",$_POST['nombres']);
-		
-		    $nombres = $_POST['nombres'];
+            $nombres = $_POST['nombres'];
         }
-		$_POST['nombre']=trim($_POST['nombre']);
-		if($_POST['nombre']!=""){
-
         $nombres[] = $_POST['nombre'];
-		}
     }
 
     if (!empty($nombres)) {
