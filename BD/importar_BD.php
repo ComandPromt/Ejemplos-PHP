@@ -6,13 +6,13 @@ $host="localhost";
 $bd="prueba";
 $nombre="backup.sql"; 
 
-$conecta = mysqli_connect($host, $usuario, $passwd); 
+$conecta = mysqli_connect($host, $usuario, $passwd,$bd) or die("Error de conexion"); 
 
 if (!$conecta) { 
-die('Error : ' . mysql_error()); 
+die('Error : ' . mysqli_error()); 
 } 
 
-$db_selected = mysqli_select_db($bd, $conecta); 
+$db_selected = mysqli_select_db($conecta,$bd); 
 
 if (!$db_selected) { 
 echo 'Fallo en la base de datos indicada',$db_selected,'<br/>'; 
