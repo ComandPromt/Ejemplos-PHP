@@ -14,16 +14,16 @@ $tablas = false; //tablas de la bd
 $compresion = false;
 
 /* Conexion */
-$conexion = mysql_connect($host, $usuario, $passwd)
+$conexion = mysqli_connect($host, $usuario, $passwd,$bd)
 or die("No se puede conectar con el servidor MySQL: ".mysql_error());
-mysql_select_db($bd, $conexion)
-or die("No se pudo seleccionar la Base de Datos: ". mysql_error());
+mysql_select_db($conexion,$bd)
+or die("No se pudo seleccionar la Base de Datos: ". mysqli_error());
 /* Se busca las tablas en la base de datos */
 if ( empty($tablas) ) {
 $consulta = "SHOW TABLES FROM $bd;";
-$respuesta = mysql_query($consulta, $conexion)
-or die("No se pudo ejecutar la consulta: ".mysql_error());
-while ($fila = mysql_fetch_array($respuesta, MYSQL_NUM)) {
+$respuesta = mysqli_query($conexion,$consulta)
+or die("No se pudo ejecutar la consulta: ".mysqli_error());
+while ($fila = mysqli_fetch_array($respuesta, MYSQL_NUM)) {
 $tablas[] = $fila[0];
 }
 }
@@ -68,24 +68,24 @@ $drop_table_query = "# No especificado.";
 /* Se halla el query que será capaz de recrear la estructura de la tabla. */
 $create_table_query = "";
 $consulta = "SHOW CREATE TABLE $tabla;";
-$respuesta = mysql_query($consulta, $conexion)
-or die("No se pudo ejecutar la consulta: ".mysql_error());
-while ($fila = mysql_fetch_array($respuesta, MYSQL_NUM)) {
+$respuesta = mysqli_query($conexion,$consulta)
+or die("No se pudo ejecutar la consulta: ".mysqli_error());
+while ($fila = mysqli_fetch_array($respuesta, MYSQL_NUM)) {
 $create_table_query = $fila[1].";";
 }
 
 /* Se halla el query que será capaz de insertar los datos. */
 $insert_into_query = "";
 $consulta = "SELECT * FROM $tabla;";
-$respuesta = mysql_query($consulta, $conexion)
-or die("No se pudo ejecutar la consulta: ".mysql_error());
-while ($fila = mysql_fetch_array($respuesta, MYSQL_ASSOC)) {
+$respuesta = mysqli_query($conexion,$consulta)
+or die("No se pudo ejecutar la consulta: ".mysqli_error());
+while ($fila = mysqli_fetch_array($respuesta, MYSQL_ASSOC)) {
 $columnas = array_keys($fila);
 foreach ($columnas as $columna) {
 if ( gettype($fila[$columna]) == "NULL" ) {
 $values[] = "NULL";
 } else {
-$values[] = "'".mysql_real_escape_string($fila[$columna])."'"; 
+$values[] = "'".mysqli_real_escape_string($fila[$columna])."'"; 
 }
 }
 $insert_into_query .= "INSERT INTO `$tabla` VALUES (".implode(", ", $values).");\n";
