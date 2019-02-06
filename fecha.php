@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Europe/Madrid');
 function dia_es($dia_num) {
     switch ($dia_num) {
         case 1:
