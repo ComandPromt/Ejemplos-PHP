@@ -1,4 +1,6 @@
 <?php
+
+date_default_timezone_set('Europe/Madrid');
 //aca los parametros de conexion, si tienes aparte la conexión , solo incluyuela
 $usuario="root";
 $passwd="rootroot";
@@ -14,10 +16,8 @@ $tablas = false; //tablas de la bd
 $compresion = false;
 
 /* Conexion */
-$conexion = mysqli_connect($host, $usuario, $passwd,$bd)
-or die("No se puede conectar con el servidor MySQL: ".mysql_error());
-mysql_select_db($conexion,$bd)
-or die("No se pudo seleccionar la Base de Datos: ". mysqli_error());
+$conexion = mysqli_connect($host, $usuario, $passwd,$bd) or die("No se puede conectar con el servidor MySQL: ".mysql_error());
+mysqli_select_db($conexion,$bd) or die("No se pudo seleccionar la Base de Datos: ". mysqli_error());
 /* Se busca las tablas en la base de datos */
 if ( empty($tablas) ) {
 $consulta = "SHOW TABLES FROM $bd;";
