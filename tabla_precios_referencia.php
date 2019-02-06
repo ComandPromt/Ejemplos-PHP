@@ -4,6 +4,7 @@
 </head>
 <body>
 <?php
+date_default_timezone_set('Europe/Madrid');
 print '<h2 style="text-align:center;">LISTA DE LA COMPRA PARA EL ' . date('d') . "/" . date('m') . "/" . date('Y') . '</h2>';
 ?>
 <br/>
