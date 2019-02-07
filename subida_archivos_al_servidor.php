@@ -1,5 +1,9 @@
 <?php
 
+if(!file_exists ("uploads")) {
+	mkdir("uploads");
+}
+
 $uploadedfile_size=$_FILES['uploadedfile'][size];
 $file_name=$_FILES[uploadedfile][name];
 $add="uploads/$file_name";
@@ -13,7 +17,8 @@ else{
 }
 
 ?>
+
 <form enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-<input name="uploadedfile" type="file" />
-<input type="submit" value="Subir archivo" />
+	<input name="uploadedfile" type="file" />
+	<input type="submit" value="Subir archivo" />
 </form>
