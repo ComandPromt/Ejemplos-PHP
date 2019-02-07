@@ -6,7 +6,7 @@
 
 # Tabla Precios
 
-[Adivinar numero](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/tabla_precios.php)
+[Tabla de precios](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/tabla_precios.php)
 
 ![Tabla precios](previews/tabla_precios.png)
 
