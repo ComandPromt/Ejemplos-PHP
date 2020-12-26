@@ -1,140 +1,150 @@
----
-# VER TODOS LOS ERRORES
----
+ 
+ # KOLOURPAINT - PAINT OF WINDOWS XP
+ 
+ ~~~bash
+ sudo apt install kolourpaint
+ ~~~
+ 
+ # Fsearch 
+ 
+ ~~~bash
+ sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-daily
+ 
+ sudo apt update 
+ 
+ sudo apt install fsearch-trunk
+ ~~~
+ 
+ ## Fedora
+ 
+ ~~~bash
+ sudo dnf install automake autoconf intltool libtool autoconf-archive pkgconfig glib2-devel gtk3-devel
+ 
+ git clone https://github.com/cboxdoerfer/fsearch.git
+ 
+ cd fsearch
+ 
+ ./autogen.sh
+ 
+ ./configure
+ 
+ make && sudo make install
+ ~~~
+ 
+ # GIMP
+ ~~~bash
+ sudo apt install gimp
+ ~~~
+ 
+ # Krita
+ ~~~bash
+ sudo apt install krita
+ ~~~
+ 
+ # Guake Terminal
+ ~~~bash
+ sudo apt install guake
+ ~~~
+ 
+ # Gdebi - Install packages
+ 
+ ~~~bash
+ sudo apt install gdebi
+ ~~~
+ 
+ # Convert Video
+ ~~~bash
+ sudo add-apt-repository ppa:paul-climbing/ppa$ sudo apt-get update
+ 
+ sudo apt-get install winff
+ ~~~
+ 
+ # Kazam - Video Recorder
+ ~~~bash
+ sudo apt install kazam
+ ~~~
+ 
+ # Shutter - Screenshot Tool
+ ~~~bash
+ sudo add-apt-repository -y ppa:linuxuprising/shutter
+ 
+ sudo apt-get update
+ 
+ sudo apt-get install -y shutter 
+ ~~~
+ 
+ # Geany - Text Editor
+ ~~~bash
+ sudo apt install geany
+ ~~~
+ 
+ # Notepadqq - Notepad++ Folk
+ ~~~bash
+ sudo add-apt-repository ppa:notepadqq-team/notepadqq
 
-~~~php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-~~~
+ sudo apt-get update
 
----
-# Descargar Download
----
+ sudo apt-get install notepadqq
+ ~~~
 
-[Download](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/Download)
-
----
-# Arrays
----
-
-[Arrays](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/Arrays)
-
----
-# Sesiones
----
-[Sesion](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/Sesiones)
-
----
-# Ejemplos de autenticación
----
-
-[Autenticación](https://github.com/ComandPromt/Ejemplos-PHP)
-
----
-# Formulario
----
-
-[Formulario](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/Formulario)
-
----
-# Operaciones BD Mysqli - PDO
----
-
-[BD](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/BD)
-
----
-# Funciones
----
-
-[Funciones](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/Bibliotecas)
-
-![Tabla precios](previews/funciones.png)
-
----
-# Clase Rectángulo
----
-[Clase](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/Bibliotecas)
-
-![Tabla precios](previews/area.png)
-
----
-# Foreach
----
-[Foreach](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/foreach)
-
----
-# Tabla Precios
----
-
-[Tabla de precios](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/tabla_precios.php)
-
-![Tabla precios](previews/tabla_precios.png)
-
----
-# Tabla Precios Referencia
----
-
-[Ejemplo1](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/tabla_precios_referencia.php)
-
-[Ejemplo2](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/Ramon_Ejercicio_3)
-
-[Ejemplo3 _BD](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/lista%20de%20usuarios)
-![Tabla precios](previews/referencia.png)
-
----
-# Temperaturas
----
-
-[Temperaturas](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/temp_media_estaciones.php)
-
-![Tabla precios](previews/temperatura.png)
-
-[Temperaturas](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/temperaturas_localidades.php)
-
-![Tabla precios](previews/temperaturas.png)
-
----
-# Nota media
----
-
-[Notas](http://localhost/Ejemplos-PHP-master%20(1)/Ejemplos-PHP-master/vectores_hallar_nota_maxima.php)
-
-![Notas](previews/notas.png)
-
----
-# Tabla con variables
----
-
-[Variables](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/tabla_con_variables)
-
-![Variables](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/tabla_con_variables/tabla%20con%20variables.png)
-
----
-# Lista de nombres
----
-
-[Hidden](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/hidden.php)
-
-![Hidden](previews/lista_nombres.png)
-
----
-# Fecha actual
----
-
-[Fecha](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/fecha.php)
-
----
-# Exportar base de datos
----
-
-[Exportar](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/BD/exportar%20tabla%20mysql.php)
-
-[Importar](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/BD/importar_BD.php)
-
----
-# Condicional
----
-
-[Condicional](https://github.com/ComandPromt/Ejemplos-PHP/tree/master/condicional)
-![Condicional](https://github.com/ComandPromt/Ejemplos-PHP/blob/master/condicional/condicional.png)
+ ## Arch Linux
+ ~~~bash
+ sudo pacman -S notepadqq
+ ~~~
+ 
+ ## OpenSUSE
+ ~~~bash
+ sudo zypper in notepadqq
+ ~~~
+ 
+ ## Nix users
+ ~~~bash
+ nix-env -i notepadqq
+ ~~~
+ 
+ # Video Editor
+ ~~~bash
+ sudo apt install pitivi
+ 
+ sudo apt install flatpak
+ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+ flatpak install flathub org.pitivi.Pitivi
+ flatpak run org.pitivi.Pitivi//stable
+ ~~~
+ 
+ # Converseen
+ ~~~bash
+ sudo add-apt-repository ppa:ubuntuhandbook1/apps
+ sudo apt-get update
+ sudo apt-get install converseen
+ ~~~
+ 
+ # Dolphin
+ ~~~bash
+ sudo apt install dolphin
+ ~~~
+ 
+ # Visual Studio Code
+ ~~~bash
+ sudo apt install code
+ ~~~
+ 
+ # Multimedia Conversor
+ ~~~bash
+ sudo apt install handbrake
+ ~~~
+ 
+ # Hash
+ ~~~bash
+ sudo apt install gtkhash
+ ~~~
+ 
+ # Cheese - Web Cam
+ ~~~bash
+ sudo apt install cheese
+ ~~~
+ 
+ # WebCamoid - Web Cam
+ ~~~bash
+ sudo apt install webcamoid
+ ~~~
